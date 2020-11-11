@@ -49,7 +49,7 @@ const avots = [
 
 const AnimalApp = () => {
   const [result, setResult] = useState(1);
-  const [clicked, setClicked] = useState(true);
+  const [clicked, setClicked] = useState(false);
   
 
   return (
@@ -59,61 +59,63 @@ const AnimalApp = () => {
         <div className="row center-xs">
           <br />
           <div className="col-xs-2">
-            <button type="button" onClick={()=>setResult(2)}>Suņi</button>
+            <button type="button" onClick={()=>{setResult(2);setClicked(false);}}>Suņi</button>
           </div>
           <div className="col-xs-2">
-            <button type="button" onClick={()=>setResult(3)}>Kaķi</button>
+            <button type="button" onClick={()=>{setResult(3);setClicked(false);}}>Kaķi</button>
           </div>
           <div className="col-xs-2">
-            <button type="button" onClick={()=>setResult(4)}>Zirgi</button>
+            <button type="button" onClick={()=>{setResult(4);setClicked(false);}}>Zirgi</button>
           </div>
           <div className="col-xs-2">
-            <button type="button" onClick={()=>setResult(5)}>Ziloņi</button>
+            <button type="button" onClick={()=>{setResult(5);setClicked(false);}}>Ziloņi</button>
           </div>
           <div className="col-xs-2">
-            <button type="button" onClick={()=>setResult(6)}>Sikspārņi</button>
+            <button type="button" onClick={()=>{setResult(6);setClicked(false);}}>Sikspārņi</button>
           </div>
           <div className="col-xs-2">
-            <button type="button" onClick={()=>setResult(7)}>Delfīni</button>
+            <button type="button" onClick={()=>{setResult(7);setClicked(false);}}>Delfīni</button>
           </div>
         </div>
       </div>
       <div className="div">
-        Selected is : {result}
+        Selected is : {result};
         <br />
-        <button type="button" onClick={()=>setResult(1)} className="reset">Reset</button>
+        Clicked is : {String(clicked)};
+        <br />
+        <button type="button" onClick={()=>{setResult(1);setClicked(false);}} className="reset">Reset</button>
       </div>
       <br />
       <div className="container">
         <div className="row center-xs">
           <div className="col-xs-4">
-            <button type="button" onClick={() => setClicked(!clicked)}>
-              {clicked?<img src={(result===2)?avots[result-1].imgSrc:avots[0].imgSrc} alt="" />:<p>{avots[result-1].description}</p>}
+            <button type="button" onClick={() => setClicked((result===2)&&!clicked)}>
+              {!((result===2) && clicked)?<img src={(result===2)?avots[result-1].imgSrc:avots[0].imgSrc} alt="" />:<p>{avots[result-1].description}</p>}
             </button>
           </div>
           <div className="col-xs-4">
-            <button type="button" onClick={() => setClicked(!clicked)}>
-              {clicked?<img src={(result===3)?avots[result-1].imgSrc:avots[0].imgSrc} alt="" />:<p>{avots[result-1].description}</p>}
+            <button type="button" onClick={() => setClicked((result===3)&&!clicked)}>
+              {!((result===3) && clicked)?<img src={(result===3)?avots[result-1].imgSrc:avots[0].imgSrc} alt="" />:<p>{avots[result-1].description}</p>}
             </button>            
           </div>
           <div className="col-xs-4">
-            <button type="button" onClick={() => setClicked(!clicked)}>
-              {clicked?<img src={(result===4)?avots[result-1].imgSrc:avots[0].imgSrc} alt="" />:<p>{avots[result-1].description}</p>}
+            <button type="button" onClick={() => setClicked((result===4)&&!clicked)}>
+              {!((result===4) && clicked)?<img src={(result===4)?avots[result-1].imgSrc:avots[0].imgSrc} alt="" />:<p>{avots[result-1].description}</p>}
             </button> 
           </div>
           <div className="col-xs-4">
-            <button type="button" onClick={() => setClicked(!clicked)}>
-              {clicked?<img src={(result===5)?avots[result-1].imgSrc:avots[0].imgSrc} alt="" />:<p>{avots[result-1].description}</p>}
+            <button type="button" onClick={() => setClicked((result===5)&&!clicked)}>
+              {!((result===5) && clicked)?<img src={(result===5)?avots[result-1].imgSrc:avots[0].imgSrc} alt="" />:<p>{avots[result-1].description}</p>}
             </button> 
           </div>
           <div className="col-xs-4">
-            <button type="button" onClick={() => setClicked(!clicked)}>
-              {clicked?<img src={(result===6)?avots[result-1].imgSrc:avots[0].imgSrc} alt="" />:<p>{avots[result-1].description}</p>}
+            <button type="button" onClick={() => setClicked((result===6)&&!clicked)}>
+              {!((result===6) && clicked)?<img src={(result===6)?avots[result-1].imgSrc:avots[0].imgSrc} alt="" />:<p>{avots[result-1].description}</p>}
             </button> 
           </div>
           <div className="col-xs-4">
-            <button type="button" onClick={() => setClicked(!clicked)}>
-              {clicked?<img src={(result===7)?avots[result-1].imgSrc:avots[0].imgSrc} alt="" />:<p>{avots[result-1].description}</p>}
+            <button type="button" onClick={() => setClicked((result===7)&&!clicked)}>
+              {!((result===7) && clicked)?<img src={(result===7)?avots[result-1].imgSrc:avots[0].imgSrc} alt="" />:<p>{avots[result-1].description}</p>}
             </button> 
           </div>
         </div>
