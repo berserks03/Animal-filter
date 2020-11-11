@@ -48,10 +48,13 @@ const avots = [
 ];
 
 const AnimalApp = () => {
-  const [result, setResult] = useState(1);
+  const [result, setResult] = useState([1]);
   const [clicked, setClicked] = useState(false);
   
-
+  const onToggleArray = (item:number) => (
+    (result.includes(item) ? result.filter(i => i !== item).map(filtered => filtered) : [ ...result, item ])
+  );
+  
   return (
     
     <div className="animal-app">
@@ -59,22 +62,22 @@ const AnimalApp = () => {
         <div className="row center-xs">
           <br />
           <div className="col-xs-2">
-            <button type="button" onClick={()=>{setResult(2);setClicked(false);}}>Suņi</button>
+            <button type="button" onClick={()=>{setResult(onToggleArray(2));setClicked(false);}}>Suņi</button>
           </div>
           <div className="col-xs-2">
-            <button type="button" onClick={()=>{setResult(3);setClicked(false);}}>Kaķi</button>
+            <button type="button" onClick={()=>{setResult(onToggleArray(3));setClicked(false);}}>Kaķi</button>
           </div>
           <div className="col-xs-2">
-            <button type="button" onClick={()=>{setResult(4);setClicked(false);}}>Zirgi</button>
+            <button type="button" onClick={()=>{setResult(onToggleArray(4));setClicked(false);}}>Zirgi</button>
           </div>
           <div className="col-xs-2">
-            <button type="button" onClick={()=>{setResult(5);setClicked(false);}}>Ziloņi</button>
+            <button type="button" onClick={()=>{setResult(onToggleArray(5));setClicked(false);}}>Ziloņi</button>
           </div>
           <div className="col-xs-2">
-            <button type="button" onClick={()=>{setResult(6);setClicked(false);}}>Sikspārņi</button>
+            <button type="button" onClick={()=>{setResult(onToggleArray(6));setClicked(false);}}>Sikspārņi</button>
           </div>
           <div className="col-xs-2">
-            <button type="button" onClick={()=>{setResult(7);setClicked(false);}}>Delfīni</button>
+            <button type="button" onClick={()=>{setResult(onToggleArray(7));setClicked(false);}}>Delfīni</button>
           </div>
         </div>
       </div>
@@ -83,39 +86,39 @@ const AnimalApp = () => {
         <br />
         Clicked is : {String(clicked)};
         <br />
-        <button type="button" onClick={()=>{setResult(1);setClicked(false);}} className="reset">Reset</button>
+        <button type="button" onClick={()=>{setResult([1]);setClicked(false);}} className="reset">Reset</button>
       </div>
       <br />
       <div className="container">
         <div className="row center-xs">
           <div className="col-xs-4">
-            <button type="button" onClick={() => setClicked((result===2)&&!clicked)}>
-              {!((result===2) && clicked)?<img src={(result===2)?avots[result-1].imgSrc:avots[0].imgSrc} alt="" />:<p>{avots[result-1].description}</p>}
+            <button type="button" onClick={() => setClicked(result.some(i=> i===2)&&!clicked)}>
+              {!(result.some(i=> i===2) && clicked)?<img src={result.some(i=> i===2)?avots[1].imgSrc:avots[0].imgSrc} alt="" />:<p>{avots[1].description}</p>}
             </button>
           </div>
           <div className="col-xs-4">
-            <button type="button" onClick={() => setClicked((result===3)&&!clicked)}>
-              {!((result===3) && clicked)?<img src={(result===3)?avots[result-1].imgSrc:avots[0].imgSrc} alt="" />:<p>{avots[result-1].description}</p>}
+            <button type="button" onClick={() => setClicked((result.some(i=> i===3))&&!clicked)}>
+              {!((result.some(i=> i===3)) && clicked)?<img src={(result.some(i=> i===3))?avots[2].imgSrc:avots[0].imgSrc} alt="" />:<p>{avots[2].description}</p>}
             </button>            
           </div>
           <div className="col-xs-4">
-            <button type="button" onClick={() => setClicked((result===4)&&!clicked)}>
-              {!((result===4) && clicked)?<img src={(result===4)?avots[result-1].imgSrc:avots[0].imgSrc} alt="" />:<p>{avots[result-1].description}</p>}
+            <button type="button" onClick={() => setClicked((result.some(i=> i===4))&&!clicked)}>
+              {!((result.some(i=> i===4)) && clicked)?<img src={(result.some(i=> i===4))?avots[3].imgSrc:avots[0].imgSrc} alt="" />:<p>{avots[3].description}</p>}
             </button> 
           </div>
           <div className="col-xs-4">
-            <button type="button" onClick={() => setClicked((result===5)&&!clicked)}>
-              {!((result===5) && clicked)?<img src={(result===5)?avots[result-1].imgSrc:avots[0].imgSrc} alt="" />:<p>{avots[result-1].description}</p>}
+            <button type="button" onClick={() => setClicked((result.some(i=> i===5))&&!clicked)}>
+              {!((result.some(i=> i===5)) && clicked)?<img src={(result.some(i=> i===5))?avots[4].imgSrc:avots[0].imgSrc} alt="" />:<p>{avots[4].description}</p>}
             </button> 
           </div>
           <div className="col-xs-4">
-            <button type="button" onClick={() => setClicked((result===6)&&!clicked)}>
-              {!((result===6) && clicked)?<img src={(result===6)?avots[result-1].imgSrc:avots[0].imgSrc} alt="" />:<p>{avots[result-1].description}</p>}
+            <button type="button" onClick={() => setClicked((result.some(i=> i===6))&&!clicked)}>
+              {!((result.some(i=> i===6)) && clicked)?<img src={(result.some(i=> i===6))?avots[5].imgSrc:avots[0].imgSrc} alt="" />:<p>{avots[5].description}</p>}
             </button> 
           </div>
           <div className="col-xs-4">
-            <button type="button" onClick={() => setClicked((result===7)&&!clicked)}>
-              {!((result===7) && clicked)?<img src={(result===7)?avots[result-1].imgSrc:avots[0].imgSrc} alt="" />:<p>{avots[result-1].description}</p>}
+            <button type="button" onClick={() => setClicked((result.some(i=> i===7))&&!clicked)}>
+              {!((result.some(i=> i===7)) && clicked)?<img src={(result.some(i=> i===7))?avots[6].imgSrc:avots[0].imgSrc} alt="" />:<p>{avots[6].description}</p>}
             </button> 
           </div>
         </div>
